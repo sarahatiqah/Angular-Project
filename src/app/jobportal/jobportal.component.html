@@ -1,0 +1,226 @@
+<div class="container">
+    <div class="top-section">
+      <h2>
+        {{ dateTime | date: 'medium' }}
+      </h2>
+    </div>
+  
+      <legend>Job Portal</legend>
+      <div class="row">
+        <div class="col col-md-8" style="overflow-y: scroll; max-height: 100vh">
+          <form [formGroup]="jobForm" (ngSubmit)="save()">
+            <div class="mb-3">
+              <label for="firstName" class="form-label">First Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="firstName"
+                formControlName="firstName"
+                [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
+              />
+              <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                <div *ngIf="f.firstName.errors['required']">First Name is required</div>
+                <div *ngIf="f.firstName.errors['maxlength']">First Name must be less than 100 characters</div>
+                <div *ngIf="f.firstName.errors['pattern']">First Name should contain only alphabets</div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="lastName" class="form-label">Last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastName"
+                formControlName="lastName"
+                [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+              />
+              <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                <div *ngIf="f.lastName.errors['required']">Last Name is required</div>
+                <div *ngIf="f.lastName.errors['maxlength']">Last Name must be less than 100 characters</div>
+                <div *ngIf="f.lastName.errors['pattern']">Last Name should contain only alphabets</div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="nric" class="form-label">NRIC</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nric"
+                formControlName="nric"
+                [ngClass]="{ 'is-invalid': submitted && f.nric.errors }"
+              />
+              <div *ngIf="submitted && f.nric.errors" class="invalid-feedback">
+                <div *ngIf="f.nric.errors['required']">NRIC is required</div>
+                <div *ngIf="f.nric.errors['minlength'] || f.nric.errors['maxlength'] || f.nric.errors['pattern']">NRIC must be in 12 digit format</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-md-4 ">  
+                  <div class="mb-3">
+                  <label class="form-label">Gender</label>
+                  <select
+                      class="form-select"
+                      formControlName="gender"
+                      aria-label="Default select example"
+                      [ngClass]="{ 'is-invalid': submitted && f.gender.errors }"
+                  >
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                  </select>
+                  <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+                    <div *ngIf="f.gender.errors['required']">Gender is required</div>
+                  </div>
+                  </div>
+              </div>
+          </div>
+          <div class="mb-3">
+            <label for="birthdate" class="form-label">Birthdate</label>
+            <input
+              type="text"
+              class="form-control"
+              id="birthdate"
+              formControlName="birthdate"
+              [ngClass]="{ 'is-invalid': submitted && f.birthdate.errors }"
+            />
+            <div *ngIf="submitted && f.birthdate.errors" class="invalid-feedback">
+              <div *ngIf="f.birthdate.errors['required']">Birthdate is required</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="nric" class="form-label">Age</label>
+            <input
+              type="text"
+              class="form-control"
+              id="age"
+              formControlName="age"
+              [ngClass]="{ 'is-invalid': submitted && f.age.errors }"
+            />
+            <div *ngIf="submitted && f.age.errors" class="invalid-feedback">
+              <div *ngIf="f.age.errors['required']">Age is required</div>
+              <div *ngIf="f.age.errors['minlength'] || f.age.errors['maxlength'] || f.age.errors['pattern']">Age must be in digit</div>
+            </div>
+          </div>
+            <div class="row">
+              <div class="col col-md-4 ">  
+                  <div class="mb-3">
+                  <label class="form-label">Prefered Contact</label>
+                  <select
+                      class="form-select"
+                      formControlName="contactType"
+                      aria-label="Default select example"
+                      [ngClass]="{ 'is-invalid': submitted && f.contactType.errors }"
+                  >
+                      <option value="email">Email</option>
+                      <option value="phone">Phone</option>
+                  </select>
+                  <div *ngIf="submitted && f.contactType.errors" class="invalid-feedback">
+                    <div *ngIf="f.contactType.errors['required']">Prefered Contact is required</div>
+                  </div>
+                  </div>
+              </div>
+          </div>
+              <div class="row">
+                <div class="col col-md-6">
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      formControlName="email"
+                      [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                    />
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                      <div *ngIf="f.email.errors['required']">Email is required</div>
+                      <div *ngIf="f.email.errors['email']">Email must be valid</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col col-md-6">
+                  <div class="mb-3">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="phone"
+                      formControlName="phone"
+                      [ngClass]="{ 'is-invalid': submitted && f.phone.errors }"
+                    />
+                    <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+                      <div *ngIf="f.phone.errors['required']">Phone Number is required</div>
+                      <div *ngIf="f.phone.errors['minlength'] || f.phone.errors['maxlength'] || f.phone.errors['pattern']">Phone Number must be in 10 digit format</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3" formArrayName="skills">
+              <div class="row">
+                <div class="col col-md-4">
+                  <div class="mb-3">
+                      <button
+                      type="button"
+                      (click)="addASkillFormGroup()"
+                      class="btn btn-primary"
+                      >
+                      Add A Skill
+                      </button>
+                  </div>
+                </div>
+              </div>
+              <ng-container
+                *ngFor="let skillForm of skillsForms.controls; let i = index"
+              >
+                <div class="row" [formGroupName]="i">
+                  <div class="col col-md-5">
+                    <div class="mb-3">
+                      <label [for]="'programLanguage' + i" class="form-label"
+                        >Programing Language</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        [id]="'programLanguage' + i"
+                        formControlName="programLanguage"
+                      />
+                    </div>
+                    <div class="alert alert-danger" *ngIf=" getProgramingLagnuage(i)?.invalid && (getProgramingLagnuage(i)?.touched || getProgramingLagnuage(i)?.dirty)">
+                      <div *ngIf="getProgramingLagnuage(i)?.errors?.['required']">
+                      Known programing skill can't be empty
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col col-md-5">
+                    <div class="mb-3">
+                      <label [for]="'experience' + i" class="form-label"
+                        >Experience</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        [id]="'experience' + i"
+                        formControlName="experience"
+                      />
+                    </div>
+                    <div class="alert alert-danger" *ngIf=" getExperience(i)?.invalid && (getExperience(i)?.touched || getExperience(i)?.dirty)">
+                      <div *ngIf="getExperience(i)?.errors?.['pattern']"> Experience should contain only number</div>
+                    </div>
+                  </div>
+                  <div class="col col md-2">
+                    <button
+                      class="btn btn-danger mt-4"
+                      type="button"
+                      (click)="removeSkillFormGroup(i)"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <div class="col col-md-4">
+        <div style="position: fixed">{{ preview }}</div>
+      </div>
+    </div>
+  </div>
+  
