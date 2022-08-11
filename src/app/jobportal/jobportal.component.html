@@ -7,7 +7,7 @@
   
       <legend>Job Portal</legend>
       <div class="row">
-        <div class="col col-md-8" style="overflow-y: scroll; max-height: 100vh">
+        <div class="col col-md-12" >
           <form [formGroup]="jobForm" (ngSubmit)="save()">
             <div class="mb-3">
               <label for="firstName" class="form-label">First Name</label>
@@ -170,7 +170,7 @@
                 *ngFor="let skillForm of skillsForms.controls; let i = index"
               >
                 <div class="row" [formGroupName]="i">
-                  <div class="col col-md-5">
+                  <div class="col col-md-3">
                     <div class="mb-3">
                       <label [for]="'programLanguage' + i" class="form-label"
                         >Programing Language</label>
@@ -187,7 +187,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col col-md-5">
+                  <div class="col col-md-3">
                     <div class="mb-3">
                       <label [for]="'experience' + i" class="form-label"
                         >Experience</label
@@ -202,6 +202,14 @@
                     <div class="alert alert-danger" *ngIf=" getExperience(i)?.invalid && (getExperience(i)?.touched || getExperience(i)?.dirty)">
                       <div *ngIf="getExperience(i)?.errors?.['pattern']"> Experience should contain only number</div>
                     </div>
+                  </div>
+                  <div class="col col-md-3">
+                    <div class="mb-3">
+                      <label [for]="'rating' + i" class="form-label"
+                        >Rating</label
+                      >
+                    <p-rating formControlName="rating" [id]="'rating' + i"></p-rating>
+                  </div>
                   </div>
                   <div class="col col md-2">
                     <button

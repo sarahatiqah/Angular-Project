@@ -11,7 +11,8 @@ import { timer } from 'rxjs';
 export class JobportalComponent implements OnInit {
   dateTime!: Date;
   submitted = false;
-  
+
+
   constructor(private fb: FormBuilder) { }
 
   jobForm = this.fb.group({
@@ -28,8 +29,6 @@ export class JobportalComponent implements OnInit {
     phone: ['', [Validators.required, Validators.minLength(10),
     Validators.maxLength(10), Validators.pattern('^[0-9]*$')]],
     skills: this.fb.array([]),
-
-
   });
 
   preview: string = '';
@@ -85,4 +84,14 @@ export class JobportalComponent implements OnInit {
   getExperience(index: number) {
     return this.skillsForms.at(index).get('experience');
   }
+
+  getRating(index: number) {
+    return this.skillsForms.at(index).get('rating');
+  }
 }
+
+export class AppComponent { 
+    
+  val1: number = 2;
+}
+
