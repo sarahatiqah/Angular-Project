@@ -11,7 +11,7 @@ import { timer } from 'rxjs';
 export class JobportalComponent implements OnInit {
   dateTime!: Date;
   submitted = false;
-
+  uploadedFiles: any[] = [];
 
   constructor(private fb: FormBuilder) { }
 
@@ -29,6 +29,7 @@ export class JobportalComponent implements OnInit {
     phone: ['', [Validators.required, Validators.minLength(10),
     Validators.maxLength(10), Validators.pattern('^[0-9]*$')]],
     skills: this.fb.array([]),
+    resume: ['',[Validators.required]]
   });
 
   preview: string = '';

@@ -223,6 +223,19 @@
                 </div>
               </ng-container>
             </div>
+            <div class="mb-3">
+              <label for="resume" class="form-label">Resume</label>
+              <input
+                type="file"
+                class="form-control"
+                id="resume"
+                formControlName="resume"
+                [ngClass]="{ 'is-invalid': submitted && f.resume.errors }"
+              >
+              <div *ngIf="submitted && f.resume.errors" class="invalid-feedback">
+                <div *ngIf="f.resume.errors['required']">Resume is required</div>
+              </div>
+              </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
@@ -232,7 +245,6 @@
         <div style="position: static">{{ preview }}</div>
       </div>
       </div>
-
     </div>
   </div>
 
