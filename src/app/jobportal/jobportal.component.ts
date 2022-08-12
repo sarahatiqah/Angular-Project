@@ -55,7 +55,7 @@ export class JobportalComponent implements OnInit {
     this.skillsForms.push(
       this.fb.group({
         programLanguage: [''],
-        experience: [0, [Validators.pattern('^[0-9]*$')]],
+        experience: ['', [Validators.pattern('^[0-9]*$')]],
         rating: [''],
       })
     );
