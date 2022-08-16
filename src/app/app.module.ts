@@ -6,19 +6,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { JobportalComponent } from './jobportal/jobportal.component';
 import {RatingModule} from 'primeng/rating';
-import {FileUploadModule} from 'primeng/fileupload';
 import {HttpClientModule} from '@angular/common/http';
+import {RadioButtonModule} from 'primeng/radiobutton';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    JobportalComponent
+    JobportalComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    RatingModule
+    RatingModule,
+    RadioButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

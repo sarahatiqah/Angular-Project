@@ -12,6 +12,7 @@ export class JobportalComponent implements OnInit {
   dateTime!: Date;
   submitted = false;
   uploadedFiles: any[] = [];
+  gender!: string;
 
   constructor(private fb: FormBuilder) { }
 

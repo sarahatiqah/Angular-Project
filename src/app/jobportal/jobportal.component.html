@@ -73,7 +73,7 @@
               </div>
           </div>
           <div class="mb-3">
-            <label for="birthdate" class="form-label">Birthdate</label>
+            <label for="birthdate" class="form-label">Date of Birth</label>
             <input 
               type="date" 
               class="form-control"
@@ -82,7 +82,7 @@
               [ngClass]="{ 'is-invalid': submitted && f.birthdate.errors }"
             />
             <div *ngIf="submitted && f.birthdate.errors" class="invalid-feedback">
-              <div *ngIf="f.birthdate.errors['required']">Birthdate is required</div>
+              <div *ngIf="f.birthdate.errors['required']">Date of Birth is required</div>
             </div>
           </div>
           <div class="mb-3">
