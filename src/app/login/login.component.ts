@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
+import { Router } from '@angular/router'
 
 
 @Component({
@@ -8,15 +9,15 @@ import { first } from 'rxjs/operators';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
-    loading = false;
+export class LoginComponent{
+
     submitted = false;
 
-    constructor(private fb: FormBuilder) { }
+    constructor(private fb: FormBuilder, private router: Router) { }
 
     loginForm = this.fb.group({
-      username: ['', [Validators.required, Validators.maxLength(10), Validators.pattern('^[a-zA-Z ]*$')]],
-      password: ['', [Validators.required, Validators.maxLength(6)]]
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
     });
   
     preview: string = '';
@@ -29,19 +30,18 @@ export class LoginComponent implements OnInit {
     save() {
       this.submitted = true;
       this.preview = JSON.stringify(this.loginForm.value);
-    }
 
-    get username(){
-      return this.loginForm.get('username');
-    }
-  
-    get password(){
-      return this.loginForm.get("password");
+      // stop here if form is invalid
+      if (this.loginForm.invalid) {
+        return;
+      }
+      //True if all the fields are filled
+      if(this.submitted)
+      {
+        this.router.navigate(['jobportal']);
+      }
     }
   }
-  
-  export class AppComponent { 
 
-  }
   
   

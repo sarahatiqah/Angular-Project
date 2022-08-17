@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-signup',
@@ -9,14 +10,13 @@ import { first } from 'rxjs/operators';
 })
 export class SignupComponent implements OnInit {
 
-  loading = false;
     submitted = false;
 
-    constructor(private fb: FormBuilder) { }
+    constructor(private fb: FormBuilder, private router: Router) { }
 
     signupForm = this.fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
+      firstName: ['', [Validators.required, Validators.maxLength(100), Validators.pattern('^[a-zA-Z ]*$')]],
+      lastName: ['', [Validators.required, Validators.maxLength(100), Validators.pattern('^[a-zA-Z ]*$')]],
       username: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
@@ -31,19 +31,19 @@ export class SignupComponent implements OnInit {
     save() {
       this.submitted = true;
       this.preview = JSON.stringify(this.signupForm.value);
-    }
 
-    get username(){
-      return this.signupForm.get('username');
-    }
-  
-    get password(){
-      return this.signupForm.get("password");
+        // stop here if form is invalid
+        if (this.signupForm.invalid) {
+          return;
+        }
+
+        //True if all the fields are filled
+        if(this.submitted)
+        {
+          this.router.navigate(['login']);
+        }
     }
   }
-  
-  export class AppComponent { 
 
-  }
   
   
