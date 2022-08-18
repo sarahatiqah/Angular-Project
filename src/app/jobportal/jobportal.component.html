@@ -1,11 +1,15 @@
+<div class="topnav navbar-dark bg-dark">
+  <div class="topnav-right">
+        <a class="nav-link" routerLink="/home">Home</a>
+        <a class="nav-link" routerLink="/jobportal">Apply</a>
+        <a class="nav-link" routerLink="/login">Log Out</a>
+  </div>
+</div>
+
 <div class="container">
-    <div class="top-section">
-      <h2>
+      <h2><br>
         {{ dateTime | date: 'medium' }}
-      </h2>
-    </div>
-  
-      <legend>Job Portal</legend>
+      </h2><br>
       <div class="row">
         <div class="col col-md-12" >
           <form [formGroup]="jobForm" (ngSubmit)="save()">
@@ -159,7 +163,7 @@
                       <button
                       type="button"
                       (click)="addASkillFormGroup()"
-                      class="btn btn-primary"
+                      class="btn btn-dark"
                       >
                       Add A Skill
                       </button>
@@ -236,7 +240,7 @@
                 <div *ngIf="f.resume.errors['required']">Resume is required</div>
               </div>
               </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-dark">Submit</button>
         </form>
       </div>
     

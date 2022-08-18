@@ -10,20 +10,23 @@ import {HttpClientModule} from '@angular/common/http';
 import {RadioButtonModule} from 'primeng/radiobutton';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     JobportalComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
     RatingModule,
-    RadioButtonModule
+    RadioButtonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

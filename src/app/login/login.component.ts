@@ -38,7 +38,7 @@ export class LoginComponent{
       //True if all the fields are filled
       if(this.submitted)
       {
-        this.router.navigate(['jobportal']);
+        this.router.navigate(['home']);
       }
     }
   }
