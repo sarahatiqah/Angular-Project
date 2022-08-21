@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { Router } from '@angular/router'
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-signup',
@@ -12,7 +13,7 @@ export class SignupComponent implements OnInit {
 
     submitted = false;
 
-    constructor(private fb: FormBuilder, private router: Router) { }
+    constructor(private fb: FormBuilder, private router: Router, private http: HttpClient) { }
 
     signupForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.maxLength(100), Validators.pattern('^[a-zA-Z ]*$')]],
@@ -30,18 +31,14 @@ export class SignupComponent implements OnInit {
   
     save() {
       this.submitted = true;
-      this.preview = JSON.stringify(this.signupForm.value);
-
-        // stop here if form is invalid
-        if (this.signupForm.invalid) {
-          return;
-        }
-
-        //True if all the fields are filled
-        if(this.submitted)
-        {
-          this.router.navigate(['login']);
-        }
+      this.http.post<any>("http://localhost:3000/signupUsers", this.signupForm.value)
+      .subscribe(res=>{
+        alert("Signup Successfully");
+        this.signupForm.reset();
+        this.router.navigate(['login']);
+      },err=>{
+        alert("Something went wrong")
+      })
     }
   }
 

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { Router } from '@angular/router'
-
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +13,7 @@ export class LoginComponent{
 
     submitted = false;
 
-    constructor(private fb: FormBuilder, private router: Router) { }
+    constructor(private fb: FormBuilder, private router: Router, private http: HttpClient) { }
 
     loginForm = this.fb.group({
       username: ['', [Validators.required]],
@@ -29,17 +29,21 @@ export class LoginComponent{
   
     save() {
       this.submitted = true;
-      this.preview = JSON.stringify(this.loginForm.value);
-
-      // stop here if form is invalid
-      if (this.loginForm.invalid) {
-        return;
-      }
-      //True if all the fields are filled
-      if(this.submitted)
-      {
-        this.router.navigate(['home']);
-      }
+      this.http.get<any>("http://localhost:3000/signupUsers")
+      .subscribe(res=>{
+        const user = res.find((a:any)=>{
+          return a.username === this.loginForm.value.username && a.password === this.loginForm.value.password
+        });
+        if (user){
+          alert("Login Success");
+          this.loginForm.reset();
+          this.router.navigate(['home'])
+        }else{
+          alert("User not found!");
+        }
+      },err=>{
+        alert("Something went wrong!")
+      })
     }
   }
 

@@ -191,28 +191,12 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col col-md-4">
+                  <div class="col col-md-3">
                     <div class="mb-3">
                       <label [for]="'experience' + i" class="form-label"
                         >Experience</label
                       >
-                      <input
-                        type="text"
-                        class="form-control"
-                        [id]="'experience' + i"
-                        formControlName="experience"
-                      />
-                    </div>
-                    <div class="alert alert-danger" *ngIf=" getExperience(i)?.invalid && (getExperience(i)?.touched || getExperience(i)?.dirty)">
-                      <div *ngIf="getExperience(i)?.errors?.['pattern']"> Experience should contain only number</div>
-                    </div>
-                  </div>
-                  <div class="col col-md-3">
-                    <div class="mb-3">
-                      <label [for]="'rating' + i" class="form-label"
-                        >Rating</label
-                      >
-                    <p-rating formControlName="rating" [id]="'rating' + i"></p-rating>
+                    <p-rating formControlName="experience" [id]="'experience' + i"></p-rating>
                   </div>
                   </div>
                   <div class="col col md-2">

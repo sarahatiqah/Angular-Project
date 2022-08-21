@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit} from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { timer } from 'rxjs';
 
 @Component({
@@ -14,7 +16,7 @@ export class JobportalComponent implements OnInit {
   uploadedFiles: any[] = [];
   gender!: string;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,  private router: Router, private http: HttpClient) { }
 
   jobForm = this.fb.group({
     firstName: ['', [Validators.required, Validators.maxLength(100), Validators.pattern('^[a-zA-Z ]*$')]],
@@ -22,7 +24,7 @@ export class JobportalComponent implements OnInit {
     nric: ['', [Validators.required, Validators.maxLength(12), Validators.minLength(12), Validators.pattern('^[0-9]*$')]],
     gender: ['',[Validators.required]],
     birthdate: ['', Validators.required],
-    age: ['', [Validators.required, Validators.minLength(3),
+    age: ['', [Validators.required, Validators.minLength(1),
     Validators.maxLength(3), Validators.pattern('^[0-9]*$')]],
     contactType: ['',[Validators.required]],
     email: ['', [Validators.required, Validators.email,
@@ -46,7 +48,14 @@ export class JobportalComponent implements OnInit {
 
   save() {
     this.submitted = true;
-    this.preview = JSON.stringify(this.jobForm.value);
+    this.http.post<any>("http://localhost:3000/usersApplication", this.jobForm.value)
+      .subscribe(res=>{
+        alert("Application Successfull");
+        this.jobForm.reset();
+        this.router.navigate(['jobportal']);
+      },err=>{
+        alert("Something went wrong")
+      })
   }
 
   get skillsForms() {
@@ -57,8 +66,7 @@ export class JobportalComponent implements OnInit {
     this.skillsForms.push(
       this.fb.group({
         programLanguage: [''],
-        experience: ['', [Validators.pattern('^[0-9]*$')]],
-        rating: [''],
+        experience: ['']
       })
     );
   }
