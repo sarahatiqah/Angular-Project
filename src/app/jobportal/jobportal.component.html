@@ -20,13 +20,12 @@
                 class="form-control"
                 id="firstName"
                 formControlName="firstName"
-                [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
               />
-              <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-                <div *ngIf="f.firstName.errors['required']">First Name is required</div>
-                <div *ngIf="f.firstName.errors['maxlength']">First Name must be less than 100 characters</div>
-                <div *ngIf="f.firstName.errors['pattern']">First Name should contain only alphabets</div>
-              </div>
+              <div *ngIf="jobForm.controls['firstName'].dirty || jobForm.controls['firstName'].touched">
+                <div class="text-danger" *ngIf="jobForm.hasError('required', 'firstName')"><small>First Name is required</small></div>
+                <div class="text-danger" *ngIf="jobForm.hasError('pattern', 'firstName')"><small>First Name should contain only alphabets</small></div>
+                <div class="text-danger" *ngIf="jobForm.hasError('maxlength', 'firstName')"><small>First Name must be less than 100 characters</small></div>
+            </div>
             </div>
             <div class="mb-3">
               <label for="lastName" class="form-label">Last Name</label>
@@ -35,13 +34,12 @@
                 class="form-control"
                 id="lastName"
                 formControlName="lastName"
-                [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
               />
-              <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-                <div *ngIf="f.lastName.errors['required']">Last Name is required</div>
-                <div *ngIf="f.lastName.errors['maxlength']">Last Name must be less than 100 characters</div>
-                <div *ngIf="f.lastName.errors['pattern']">Last Name should contain only alphabets</div>
-              </div>
+              <div *ngIf="jobForm.controls['lastName'].dirty || jobForm.controls['lastName'].touched">
+                <div class="text-danger" *ngIf="jobForm.hasError('required', 'lastName')"><small>Last Name is required</small></div>
+                <div class="text-danger" *ngIf="jobForm.hasError('pattern', 'lastName')"><small>Last Name should contain only alphabets</small></div>
+                <div class="text-danger" *ngIf="jobForm.hasError('maxlength', 'lastName')"><small>Last Name must be less than 100 characters</small></div>
+            </div>
             </div>
             <div class="mb-3">
               <label for="nric" class="form-label">NRIC</label>
@@ -50,11 +48,10 @@
                 class="form-control"
                 id="nric"
                 formControlName="nric"
-                [ngClass]="{ 'is-invalid': submitted && f.nric.errors }"
               />
-              <div *ngIf="submitted && f.nric.errors" class="invalid-feedback">
-                <div *ngIf="f.nric.errors['required']">NRIC is required</div>
-                <div *ngIf="f.nric.errors['minlength'] || f.nric.errors['maxlength'] || f.nric.errors['pattern']">NRIC must be in 12 digit format</div>
+              <div *ngIf="jobForm.controls['nric'].dirty || jobForm.controls['nric'].touched">
+                <div class="text-danger" *ngIf="jobForm.hasError('required', 'nric')"><small>Last Name is required</small></div>
+                <div class="text-danger" *ngIf="jobForm.hasError('minlength', 'nric') || jobForm.hasError('maxlength', 'nric') || jobForm.hasError('pattern', 'nric')"><small>NRIC must be in 12 digit format</small></div>
               </div>
             </div>
             <div class="row">
@@ -65,13 +62,12 @@
                       class="form-select"
                       formControlName="gender"
                       aria-label="Default select example"
-                      [ngClass]="{ 'is-invalid': submitted && f.gender.errors }"
                   >
                       <option value="male">Male</option>
                       <option value="female">Female</option>
                   </select>
-                  <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
-                    <div *ngIf="f.gender.errors['required']">Gender is required</div>
+                  <div *ngIf="jobForm.controls['gender'].dirty || jobForm.controls['gender'].touched">
+                    <div class="text-danger" *ngIf="jobForm.hasError('required', 'gender')"><small>Gender is required</small></div>
                   </div>
                   </div>
               </div>
@@ -83,24 +79,22 @@
               class="form-control"
               id="birthdate" 
               formControlName="birthdate"
-              [ngClass]="{ 'is-invalid': submitted && f.birthdate.errors }"
             />
-            <div *ngIf="submitted && f.birthdate.errors" class="invalid-feedback">
-              <div *ngIf="f.birthdate.errors['required']">Date of Birth is required</div>
+            <div *ngIf="jobForm.controls['birthdate'].dirty || jobForm.controls['birthdate'].touched">
+              <div class="text-danger" *ngIf="jobForm.hasError('required', 'birthdate')"><small>Date of Birth is required</small></div>
             </div>
           </div>
           <div class="mb-3">
-            <label for="nric" class="form-label">Age</label>
+            <label for="age" class="form-label">Age</label>
             <input
               type="text"
               class="form-control"
               id="age"
               formControlName="age"
-              [ngClass]="{ 'is-invalid': submitted && f.age.errors }"
             />
-            <div *ngIf="submitted && f.age.errors" class="invalid-feedback">
-              <div *ngIf="f.age.errors['required']">Age is required</div>
-              <div *ngIf="f.age.errors['minlength'] || f.age.errors['maxlength'] || f.age.errors['pattern']">Age must be in digit</div>
+            <div *ngIf="jobForm.controls['age'].dirty || jobForm.controls['age'].touched">
+              <div class="text-danger" *ngIf="jobForm.hasError('required', 'age')"><small>Age is required</small></div>
+              <div class="text-danger" *ngIf="jobForm.hasError('maxlength', 'age') || jobForm.hasError('minlength', 'age') || jobForm.hasError('pattern', 'age')"><small>Age must be must be in digit</small></div>
             </div>
           </div>
             <div class="row">
@@ -111,13 +105,12 @@
                       class="form-select"
                       formControlName="contactType"
                       aria-label="Default select example"
-                      [ngClass]="{ 'is-invalid': submitted && f.contactType.errors }"
                   >
                       <option value="email">Email</option>
                       <option value="phone">Phone</option>
                   </select>
-                  <div *ngIf="submitted && f.contactType.errors" class="invalid-feedback">
-                    <div *ngIf="f.contactType.errors['required']">Prefered Contact is required</div>
+                  <div *ngIf="jobForm.controls['contactType'].dirty || jobForm.controls['contactType'].touched">
+                    <div class="text-danger" *ngIf="jobForm.hasError('required', 'contactType')"><small>Prefered Contact is required</small></div>
                   </div>
                   </div>
               </div>
@@ -131,11 +124,10 @@
                       class="form-control"
                       id="email"
                       formControlName="email"
-                      [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
                     />
-                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                      <div *ngIf="f.email.errors['required']">Email is required</div>
-                      <div *ngIf="f.email.errors['email']">Email must be valid</div>
+                    <div *ngIf="jobForm.controls['email'].dirty || jobForm.controls['email'].touched">
+                      <div class="text-danger" *ngIf="jobForm.hasError('required', 'email')"><small>Email is required</small></div>
+                      <div class="text-danger" *ngIf="jobForm.hasError('email', 'email')"><small>Email must be valid</small></div>
                     </div>
                   </div>
                 </div>
@@ -147,11 +139,10 @@
                       class="form-control"
                       id="phone"
                       formControlName="phone"
-                      [ngClass]="{ 'is-invalid': submitted && f.phone.errors }"
                     />
-                    <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
-                      <div *ngIf="f.phone.errors['required']">Phone Number is required</div>
-                      <div *ngIf="f.phone.errors['minlength'] || f.phone.errors['maxlength'] || f.phone.errors['pattern']">Phone Number must be in 10 digit format</div>
+                    <div *ngIf="jobForm.controls['phone'].dirty || jobForm.controls['phone'].touched">
+                      <div class="text-danger" *ngIf="jobForm.hasError('required', 'phone')"><small>Phone Number is required</small></div>
+                      <div class="text-danger" *ngIf="jobForm.hasError('minlength', 'phone') || jobForm.hasError('maxlength', 'phone') || jobForm.hasError('pattern', 'phone')"><small>Phone Number must be in 10 digit format</small></div>
                     </div>
                   </div>
                 </div>
@@ -184,10 +175,10 @@
                         [id]="'programLanguage' + i"
                         formControlName="programLanguage"
                       />
-                    </div>
-                    <div class="alert alert-danger" *ngIf=" getProgramingLagnuage(i)?.invalid && (getProgramingLagnuage(i)?.touched || getProgramingLagnuage(i)?.dirty)">
-                      <div *ngIf="getProgramingLagnuage(i)?.errors?.['required']">
-                      Known programing skill can't be empty
+                      <div class="text-danger" *ngIf=" getProgramLagnuage(i)?.invalid && (getProgramLagnuage(i)?.touched || getProgramLagnuage(i)?.dirty)">
+                        <div *ngIf="getProgramLagnuage(i)?.errors?.['required']">
+                          <small>Known programing skill can't be empty</small>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -218,20 +209,16 @@
                 class="form-control"
                 id="resume"
                 formControlName="resume"
-                [ngClass]="{ 'is-invalid': submitted && f.resume.errors }"
               >
               <div *ngIf="submitted && f.resume.errors" class="invalid-feedback">
                 <div *ngIf="f.resume.errors['required']">Resume is required</div>
               </div>
+              <div *ngIf="jobForm.controls['resume'].dirty || jobForm.controls['resume'].touched">
+                <div class="text-danger" *ngIf="jobForm.hasError('required', 'resume')"><small>Resume is required</small></div>
               </div>
-            <button type="submit" class="btn btn-dark">Submit</button>
+              </div>
+            <button [disabled]="!jobForm.valid" type="submit" class="btn btn-dark">Submit</button>
         </form>
-      </div>
-    
-      <div class="col col-md-6">
-      <div class="mb-3">
-        <div style="position: static">{{ preview }}</div>
-      </div>
       </div>
     </div>
   </div>

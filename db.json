@@ -13,13 +13,6 @@
       "username": "sa",
       "password": "saaaaa",
       "id": 1
-    },
-    {
-      "firstName": "Sarah",
-      "lastName": "Atiqah",
-      "username": "sarahatiqah",
-      "password": "sarahatiqah",
-      "id": 2
     }
   ],
   "usersApplication": [
@@ -36,25 +29,6 @@
       "skills": [],
       "resume": "C:\\fakepath\\Screenshot of Latest Profile Status in MySejahtera.PNG",
       "id": 1
-    },
-    {
-      "firstName": "Sofia",
-      "lastName": "Arissa",
-      "nric": "210528141234",
-      "gender": "female",
-      "birthdate": "2021-05-28",
-      "age": "1",
-      "contactType": "email",
-      "email": "sofia@gmail.com",
-      "phone": "0192260706",
-      "skills": [
-        {
-          "programLanguage": "Java",
-          "experience": 2
-        }
-      ],
-      "resume": "C:\\fakepath\\bg-callout.jpg",
-      "id": 2
     }
   ],
   "profile": {

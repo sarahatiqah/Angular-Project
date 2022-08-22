@@ -35,8 +35,6 @@ export class JobportalComponent implements OnInit {
     resume: ['',[Validators.required]]
   });
 
-  preview: string = '';
-
   ngOnInit(): void {
       
       timer(0,1000).subscribe(() => {
@@ -65,7 +63,7 @@ export class JobportalComponent implements OnInit {
   addASkillFormGroup() {
     this.skillsForms.push(
       this.fb.group({
-        programLanguage: [''],
+        programLanguage: ['', [Validators.required]],
         experience: ['']
       })
     );
@@ -87,7 +85,7 @@ export class JobportalComponent implements OnInit {
     return this.jobForm.get('email');
   }
 
-  getProgramingLagnuage(index: number) {
+  getProgramLagnuage(index: number) {
     return this.skillsForms.at(index).get('programLanguage');
   }
 

@@ -11,11 +11,10 @@
                 <input 
                     type="text" 
                     formControlName="username" 
-                    class="form-control" 
-                    [ngClass]="{ 'is-invalid': submitted && f.username.errors }" 
+                    class="form-control"
                 />
-                <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-                    <div *ngIf="f.username.errors['required']">Username is required</div>
+                <div *ngIf="loginForm.controls['username'].dirty || loginForm.controls['username'].touched">
+                    <div class="text-danger" *ngIf="loginForm.hasError('required', 'username')"><small>Username is required</small></div>
                 </div>
             </div>
             <div class="form-group">
@@ -24,11 +23,9 @@
                     type="password" 
                     formControlName="password" 
                     class="form-control" 
-                    [ngClass]="{ 'is-invalid': submitted && f.password.errors }" 
                 />
-                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                    <div *ngIf="f.password.errors['required']">Password is required</div>
-                    <div *ngIf="f.password.errors['minlength']">Password should be more than 6 characters</div>
+                <div *ngIf="loginForm.controls['password'].dirty || loginForm.controls['password'].touched">
+                    <div class="text-danger" *ngIf="loginForm.hasError('required', 'password')"><small>Password is required</small></div>
                 </div>
             </div>
             <div class="row">
