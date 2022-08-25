@@ -11,6 +11,7 @@ import {RadioButtonModule} from 'primeng/radiobutton';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
+import { ApplicationComponent } from './application/application.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HomeComponent } from './home/home.component';
     JobportalComponent,
     LoginComponent,
     SignupComponent,
-    HomeComponent
+    HomeComponent,
+    ApplicationComponent
   ],
   imports: [
     BrowserModule,

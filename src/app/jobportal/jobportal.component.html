@@ -2,6 +2,7 @@
   <div class="topnav-right">
         <a class="nav-link" routerLink="/home">Home</a>
         <a class="nav-link" routerLink="/jobportal">Apply</a>
+        <a class="nav-link" routerLink="/application">Application</a>
         <a class="nav-link" routerLink="/login">Log Out</a>
   </div>
 </div>
@@ -175,8 +176,8 @@
                         [id]="'programLanguage' + i"
                         formControlName="programLanguage"
                       />
-                      <div class="text-danger" *ngIf=" getProgramLagnuage(i)?.invalid && (getProgramLagnuage(i)?.touched || getProgramLagnuage(i)?.dirty)">
-                        <div *ngIf="getProgramLagnuage(i)?.errors?.['required']">
+                      <div class="text-danger" *ngIf=" getProgramLanguage(i)?.invalid && (getProgramLanguage(i)?.touched || getProgramLanguage(i)?.dirty)">
+                        <div *ngIf="getProgramLanguage(i)?.errors?.['required']">
                           <small>Known programing skill can't be empty</small>
                         </div>
                       </div>

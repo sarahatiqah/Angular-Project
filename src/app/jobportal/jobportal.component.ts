@@ -85,7 +85,7 @@ export class JobportalComponent implements OnInit {
     return this.jobForm.get('email');
   }
 
-  getProgramLagnuage(index: number) {
+  getProgramLanguage(index: number) {
     return this.skillsForms.at(index).get('programLanguage');
   }
 

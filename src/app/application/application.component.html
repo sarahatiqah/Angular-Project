@@ -1,0 +1,40 @@
+<div class="topnav navbar-dark bg-dark">
+    <div class="topnav-right">
+          <a class="nav-link" routerLink="/home">Home</a>
+          <a class="nav-link" routerLink="/jobportal">Apply</a>
+          <a class="nav-link" routerLink="/application">Application</a>
+          <a class="nav-link" routerLink="/login">Log Out</a>
+    </div>
+  </div>
+  <div class="container">
+    <table class="table"><br>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Nric</th>
+                <th>Gender</th>
+                <th>Date of Birth</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Resume</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let application of applicationList;let i=index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ application.firstName }}</td>
+                <td>{{ application.lastName }}</td>
+                <td>{{ application.nric }}</td>
+                <td>{{ application.gender }}</td>
+                <td>{{ application.birthdate }}</td>
+                <td>{{ application.age }}</td>
+                <td>{{ application.email }}</td>
+                <td>{{ application.phone }}</td>
+                <td>{{ application.resume }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

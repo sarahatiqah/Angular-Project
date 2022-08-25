@@ -13,13 +13,20 @@
       "username": "sa",
       "password": "saaaaa",
       "id": 1
+    },
+    {
+      "firstName": "Sarah",
+      "lastName": "Atiqah",
+      "username": "sarahamram",
+      "password": "123456",
+      "id": 2
     }
   ],
   "usersApplication": [
     {
       "firstName": "Sarah",
       "lastName": "Atiqah",
-      "nric": "010528140650",
+      "nric": "010528141234",
       "gender": "female",
       "birthdate": "2001-05-28",
       "age": "21",
@@ -29,6 +36,44 @@
       "skills": [],
       "resume": "C:\\fakepath\\Screenshot of Latest Profile Status in MySejahtera.PNG",
       "id": 1
+    },
+    {
+      "firstName": "Sorfina",
+      "lastName": "Bakar",
+      "nric": "010203040512",
+      "gender": "female",
+      "birthdate": "2001-02-03",
+      "age": "21",
+      "contactType": "email",
+      "email": "sofia@gmail.com",
+      "phone": "0192260111",
+      "skills": [
+        {
+          "programLanguage": "Java",
+          "experience": 3
+        }
+      ],
+      "resume": "C:\\fakepath\\bg-callout.jpg",
+      "id": 2
+    },
+    {
+      "firstName": "Sarah",
+      "lastName": "Atiqah",
+      "nric": "122333333333",
+      "gender": "female",
+      "birthdate": "2022-08-10",
+      "age": "2",
+      "contactType": "phone",
+      "email": "melissawyatt93@gmail.com",
+      "phone": "1222222222",
+      "skills": [
+        {
+          "programLanguage": "Java",
+          "experience": 2
+        }
+      ],
+      "resume": "C:\\fakepath\\bg-callout.jpg",
+      "id": 3
     }
   ],
   "profile": {
