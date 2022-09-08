@@ -1,0 +1,82 @@
+<!-- <div class="topnav navbar-dark bg-dark">
+    <div class="topnav-right">
+          <a class="nav-link" routerLink="/home">Home</a>
+          <a class="nav-link" routerLink="/jobportal">Apply</a>
+          <a class="nav-link" routerLink="/test">Test</a>
+          <a class="nav-link" routerLink="/managejoblist">Manage Job List</a>
+          <a class="nav-link" routerLink="/joblist">Job List</a>
+          <a class="nav-link" routerLink="/login">Log Out</a>      
+    </div>
+  </div> -->
+  <div class="container"> <br>
+    <h5>Job List</h5>
+    <button (click)="clickAddJob()" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#verticalycentered1">Add Job</button> <br>
+    <div style="overflow-x:auto;"> 
+    <table class="table table-hover mt-3" >
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Company Name</th>
+                <th>Job Role</th>
+                <th>Skills</th>
+                <th>Job Type</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of jobData">
+                <td>{{row.id}}</td>
+                <td>{{row.companyName}}</td>
+                <td>{{row.jobRole}}</td>
+                <td>{{row.skill}}</td>
+                <td>{{row.jobType}}</td>
+                <td>
+                  <button (click)="onEdit(row)" type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#verticalycentered1">Edit</button>&nbsp;
+                  <button (click)="deleteJob(row)" class="btn btn-outline-dark">Delete</button>
+                </td>
+              </tr>
+        </tbody>
+    </table>
+  </div>
+  </div>
+    <div class="modal fade" id="verticalycentered1" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title"><strong>Job Details</strong></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"
+                      aria-label="Close"></button>
+              </div>
+
+              <div class="modal-body">
+                <form [formGroup]="formValue">
+                      <div class="row">
+                          <div class="mb-3">
+                              <label for="companyName" class="col-form-label"><strong>
+                                  Company Name</strong></label>
+                              <input type="text" class="form-control" id="companyName" formControlName="companyName"/>
+                          </div>
+                          <div class="mb-3">
+                              <label for="jobRole" class="col-form-label"><strong>Job Role</strong></label>
+                              <input type="text" class="form-control" id="jobRole" formControlName="jobRole"/>
+                          </div>
+                          <div class="mb-3">
+                            <label for="skill" class="col-form-label"><strong>Skills</strong></label>
+                            <input type="text" class="form-control" id="skill" formControlName="skill"/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="jobType" class="col-form-label"><strong>Job Type</strong></label>
+                            <input type="text" class="form-control" id="jobType" formControlName="jobType"/>
+                        </div>
+                      </div>
+                <div class="modal-footer">
+                  <button type="submit" *ngIf="showAdd" (click)="postJobDetails()" data-bs-dismiss="modal" class="btn btn-dark">Add</button>
+                  <button type="submit" *ngIf="showUpdate"(click)="updateJobDetails()" data-bs-dismiss="modal" class="btn btn-dark">Update</button>
+                  <button type="button" id="cancel" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button> 
+              </div>
+            </form>
+              </div>
+            </div>
+          </div>
+</div>
+

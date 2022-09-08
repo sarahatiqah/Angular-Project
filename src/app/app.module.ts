@@ -12,6 +12,13 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { ApplicationComponent } from './application/application.component';
+import { TestComponent } from './test/test.component';
+import { ManagejoblistComponent } from './managejoblist/managejoblist.component';
+import { FolderComponent } from './component/folder/folder.component';
+import { JobappliedComponent } from './component/jobapplied/jobapplied.component';
+import { JoblistComponent } from './component/joblist/joblist.component';
+import { FilterPipe } from './shared/filter.pipe';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +27,14 @@ import { ApplicationComponent } from './application/application.component';
     LoginComponent,
     SignupComponent,
     HomeComponent,
-    ApplicationComponent
+    ApplicationComponent,
+    TestComponent,
+    ManagejoblistComponent,
+    FolderComponent,
+    JobappliedComponent,
+    JoblistComponent,
+    FilterPipe,
+
   ],
   imports: [
     BrowserModule,
@@ -28,7 +42,8 @@ import { ApplicationComponent } from './application/application.component';
     AppRoutingModule,
     RatingModule,
     RadioButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

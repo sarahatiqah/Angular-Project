@@ -1,0 +1,36 @@
+<div class="container"> <br>
+    <h5>Job List</h5>
+    <div class="form-group">
+        <input type="text" class="form-control" [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="Search Job Role">
+    </div>
+    <button (click)="filter('')" type="button" class="btn btn-dark">All Jobs</button>&nbsp;
+    <button (click)="filter('Permanent')" type="button" class="btn btn-dark">Permanent</button>&nbsp;
+    <button (click)="filter('Internship')" type="button" class="btn btn-dark">Internship</button>
+
+    <div style="overflow-x:auto;"> 
+    <table class="table table-hover mt-3" >
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Company Name</th>
+                <th>Job Role</th>
+                <th>Skills</th>
+                <th>Job Type</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of filterJobType | filter:searchKey:'jobRole'">
+                <td>{{row.id}}</td>
+                <td>{{row.companyName}}</td>
+                <td>{{row.jobRole}}</td>
+                <td>{{row.skill}}</td>
+                <td>{{row.jobType}}</td>
+                <td>
+                  <button type="button" (click)="addtoAppliedList(row)" class="btn btn-dark">Apply</button>
+                </td>
+              </tr>
+        </tbody>
+    </table>
+  </div>
+  </div>

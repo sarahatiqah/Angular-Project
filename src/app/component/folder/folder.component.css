@@ -1,3 +1,4 @@
+/* Add a black background color to the top navigation */
 .topnav {
     overflow: hidden;
 }
@@ -29,10 +30,7 @@
     float: right;
   }
 
-  th, td {
-    padding: 15px;
-  }
+  .topnav-left {
+    float: left;
 
-  .container tr th {
-    white-space: nowrap;
-}
+  }

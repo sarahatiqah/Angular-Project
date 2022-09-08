@@ -26,54 +26,87 @@
     {
       "firstName": "Sarah",
       "lastName": "Atiqah",
-      "nric": "010528141234",
-      "gender": "female",
-      "birthdate": "2001-05-28",
-      "age": "21",
-      "contactType": "email",
-      "email": "sarahatiqah@gmail.com",
-      "phone": "0193083356",
-      "skills": [],
-      "resume": "C:\\fakepath\\Screenshot of Latest Profile Status in MySejahtera.PNG",
-      "id": 1
-    },
-    {
-      "firstName": "Sorfina",
-      "lastName": "Bakar",
       "nric": "010203040512",
-      "gender": "female",
+      "gender": "Female",
       "birthdate": "2001-02-03",
       "age": "21",
-      "contactType": "email",
-      "email": "sofia@gmail.com",
-      "phone": "0192260111",
-      "skills": [
-        {
-          "programLanguage": "Java",
-          "experience": 3
-        }
-      ],
-      "resume": "C:\\fakepath\\bg-callout.jpg",
-      "id": 2
-    },
-    {
-      "firstName": "Sarah",
-      "lastName": "Atiqah",
-      "nric": "122333333333",
-      "gender": "female",
-      "birthdate": "2022-08-10",
-      "age": "2",
-      "contactType": "phone",
-      "email": "melissawyatt93@gmail.com",
-      "phone": "1222222222",
+      "contactType": "Email",
+      "email": "sarah.amram@cimb.com",
+      "phone": "0193083356",
       "skills": [
         {
           "programLanguage": "Java",
           "experience": 2
+        },
+        {
+          "programLanguage": "Python",
+          "experience": 1
+        },
+        {
+          "programLanguage": "HTML",
+          "experience": 3
         }
       ],
       "resume": "C:\\fakepath\\bg-callout.jpg",
-      "id": 3
+      "id": 1
+    },
+    {
+      "id": 2,
+      "firstName": "Sofia",
+      "lastName": "Arissa",
+      "nric": "020203040512",
+      "gender": "Male",
+      "birthdate": "2002-02-03",
+      "age": "20",
+      "email": "sofia@gmail.com",
+      "phone": "0193081234",
+      "resume": "C:\\fakepath\\bg-callout.jpg",
+      "ivDate": "2022-09-15",
+      "ivTime": "11:00"
+    }
+  ],
+  "jobList": [
+    {
+      "id": 1,
+      "companyName": "Dlync",
+      "jobRole": "App Developer",
+      "skill": "Android, JS, Reactive, mongodb",
+      "jobType": "Permanent"
+    },
+    {
+      "id": 2,
+      "companyName": "Dlync",
+      "jobRole": "Web Developer",
+      "skill": "HTML, JS, CSS, mongodb",
+      "jobType": "Permanent"
+    },
+    {
+      "id": 3,
+      "companyName": "Optum",
+      "jobRole": "Trainee",
+      "skill": "C, Java",
+      "jobType": "Internship"
+    },
+    {
+      "id": 4,
+      "companyName": "Parexel",
+      "jobRole": "Lead Engineer",
+      "skill": "JAVA, .NET, NODE",
+      "jobType": "Permanent"
+    },
+    {
+      "id": 5,
+      "companyName": "Wipro",
+      "jobRole": "Analyst Trainee",
+      "skill": "JAVA, JS, NODE",
+      "jobType": "Internship"
+    },
+    {
+      "id": 6,
+      "companyName": "ProKarma",
+      "jobRole": "Web Developer",
+      "skill": "Angular, JS, Node",
+      "jobType": "Permanent"
     }
   ],
   "profile": {

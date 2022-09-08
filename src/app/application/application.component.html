@@ -3,28 +3,34 @@
           <a class="nav-link" routerLink="/home">Home</a>
           <a class="nav-link" routerLink="/jobportal">Apply</a>
           <a class="nav-link" routerLink="/application">Application</a>
+          <a class="nav-link" routerLink="/test">Test</a>
+          <a class="nav-link" routerLink="/managejoblist">Manage Job List</a>
           <a class="nav-link" routerLink="/login">Log Out</a>
     </div>
   </div>
   <div class="container">
-    <table class="table"><br>
+    <div style="overflow-x:auto;"> 
+    <table class="table table-hover" >
         <thead>
             <tr>
                 <th>ID</th>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>Nric</th>
+                <th>NRIC</th>
                 <th>Gender</th>
                 <th>Date of Birth</th>
                 <th>Age</th>
                 <th>Email</th>
                 <th>Phone Number</th>
                 <th>Resume</th>
+                <th>Skills</th>
+                <th>Interview Date</th>
+
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let application of applicationList;let i=index">
-                <td>{{ i + 1 }}</td>
+            <tr *ngFor="let application of applicationList">
+                <td>{{ application.id }}</td>
                 <td>{{ application.firstName }}</td>
                 <td>{{ application.lastName }}</td>
                 <td>{{ application.nric }}</td>
@@ -34,7 +40,57 @@
                 <td>{{ application.email }}</td>
                 <td>{{ application.phone }}</td>
                 <td>{{ application.resume }}</td>
-            </tr>
+                <td>
+                  <ul>
+                    <li *ngFor="let skill of application.skills">
+                      {{skill.programLanguage}} ({{skill.experience}})
+                    </li>
+                  </ul>
+                </td>
+                <td>{{ application.ivDate }}</td>
+                <td>
+                  <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#verticalycentered1">Schedule</button>
+                </td>
+              </tr>
         </tbody>
     </table>
+  </div>
+  </div>
+    <div class="modal fade" id="verticalycentered1" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title"><strong>Schedule Interview</strong></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"
+                      aria-label="Close"></button>
+              </div>
+
+              <div class="modal-body">
+                  <form [formGroup]="applicationForm" (ngSubmit)="save()">
+                      <div class="row">
+                          <div class="col-6">
+                              <label for="ivDate" class="col-form-label"><strong>
+                                  Date</strong></label>
+                              <input type="date" class="form-control" id="ivDate" formControlName="ivDate"/>
+                              <div *ngIf="applicationForm.controls['ivDate'].dirty || applicationForm.controls['ivDate'].touched">
+                                <div class="text-danger" *ngIf="applicationForm.hasError('required', 'ivDate')"><small>Date is required</small></div>
+                              </div>
+                          </div>
+                          <div class="col-6">
+                              <label for="ivTime" class="col-form-label"><strong>Time</strong></label>
+                              <input type="time" class="form-control" id="ivTime" formControlName="ivTime"/>
+                              <div *ngIf="applicationForm.controls['ivTime'].dirty || applicationForm.controls['ivTime'].touched">
+                                <div class="text-danger" *ngIf="applicationForm.hasError('required', 'ivTime')"><small>Time is required</small></div>
+                              </div>
+                          </div>
+                      </div>
+                <div class="modal-footer">
+                  <button type="submit" data-bs-dismiss="modal" class="btn btn-dark">Save</button>
+                  <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button> 
+              </div>
+            </form>
+              </div>
+            </div>
+          </div>
 </div>
+

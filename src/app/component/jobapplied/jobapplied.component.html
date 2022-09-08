@@ -1,0 +1,48 @@
+<ng-container *ngIf="job.length ==0">
+    <div class="container">
+        <div class="center">
+            <h4>You haven't applied any job yet!</h4>
+            <button routerLink="/joblist" class="btn btn-dark">Apply Now</button>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="job.length !=0">
+    <div class="container"> <br>
+        <h5>Job Applied</h5>
+        <div style="overflow-x:auto;"> 
+        <table class="table table-hover mt-3" >
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Company Name</th>
+                    <th>Job Role</th>
+                    <th>Skills</th>
+                    <th>Job Type</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of job; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{row.companyName}}</td>
+                    <td>{{row.jobRole}}</td>
+                    <td>{{row.skill}}</td>
+                    <td>{{row.jobType}}</td>
+                    <td>
+                      <button (click)="removeAppliedJob(row)" type="button" class="btn btn-dark">Delete</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="4"></td>
+                    <td>
+                        <button routerLink="/joblist" class="btn btn-dark">Add More</button>&nbsp;
+                        <button (click)="emptyAppliedJob()" class="btn btn-outline-dark">Empty List</button>                    </td>
+                  </tr>
+            </tbody>
+        </table>
+      </div>
+      </div>
+
+</ng-container>
+

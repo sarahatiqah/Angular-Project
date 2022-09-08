@@ -73,6 +73,7 @@ export class JobportalComponent implements OnInit {
     this.skillsForms.removeAt(index);
   }
 
+
   get firstName(){
     return this.jobForm.get('firstName');
   }
